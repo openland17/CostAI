@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const apiKey = process.env.ANTHROPIC_API_KEY;
+    const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
     if (!apiKey) {
       return NextResponse.json(
         { error: "ANTHROPIC_API_KEY not configured" },
